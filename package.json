@@ -1,0 +1,19 @@
+{
+  "name": "express-api-boilerplate",
+  "version": "0.0.1",
+  "description": "Express Simple API Server Boilerplate",
+  "main": "server.js",
+  "repository": "git@github.com:samuelrbo/express-api-boilerplate.git",
+  "author": "Samuel Ramon <samuel.ramon@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node_modules/.bin/nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^6.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.0"
+  }
+}
