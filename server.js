@@ -17,11 +17,14 @@ if (cluster.isMaster) {
   }
 
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`- WARNING - : Worker ${worker.process.pid} dies: code: ${code} | signal: ${signal}`);
+    console.log(`[${appName}]- WARNING - : Worker ${worker.process.pid} dies: code: ${code} | signal: ${signal}`);
     console.log(`[${appName}] -> Initializing a new worker`);
     cluster.fork();
   });
 
 } else {
-  api.lis
+  api.listen(port, '0.0.0.0', () => {
+    console.log(`[${appName}] -> Running on port: %d`, port);
+    console.log(`[${appName}] -> Running process ${cluster.isMaster ? 'master' : 'child'}!\n`);
+  });
 }
