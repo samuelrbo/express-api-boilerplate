@@ -7,7 +7,6 @@ module.exports = (app, express) => {
   });
 
   // Endpoints
-  require('./routes/auth')(router);
 
   app.use('/api/v1', router);
 };

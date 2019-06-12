@@ -2,6 +2,7 @@
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const express = require('express');
 
 const corsOptions = {
   origin: '*',
@@ -11,14 +12,14 @@ const corsOptions = {
 const port = process.env.PORT;
 const app = express();
 
-const VERSIONS = process.env.API_VERSIONS;
+const VERSIONS = JSON.parse(process.env.API_VERSIONS);
 
 app.set('port', port);
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(publicDir));
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
