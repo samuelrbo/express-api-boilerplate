@@ -3,6 +3,7 @@ require('dotenv-safe').config({silent: true});
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
+const appName = process.env.APP_NAME;
 const port = process.env.PORT;
 
 const api = require('./src/app');
